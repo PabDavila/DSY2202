@@ -14,7 +14,7 @@ body {
 
 /* Hero section */
 .hero {
-  background: url('../img/banner-modelos.jpg') center/cover no-repeat;
+  background: url('../imagenes/banner-modelos.jpg') center/cover no-repeat;
   height: 80vh;
   display: flex;
   align-items: center;
