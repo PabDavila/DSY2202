@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recuperar Contraseña | Kyriu's Garage</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+  <div class="container py-5">
+    <h2 class="text-center mb-4">¿Olvidaste tu contraseña?</h2>
+    <p class="text-center mb-4">Ingresa tu correo y te enviaremos instrucciones para recuperarla.</p>
+    
+    <form id="recuperarForm" class="mx-auto" style="max-width: 400px;" novalidate>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" required>
+        <div class="invalid-feedback">Ingresa un correo válido.</div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Enviar instrucciones</button>
+    </form>
+
+    <div id="mensajeExito" class="alert alert-success mt-4 d-none text-center" role="alert">
+      Si el correo existe, se han enviado instrucciones para recuperar tu contraseña.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('recuperarForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const form = event.target;
+      const email = form.email.value.trim();
+      const mensaje = document.getElementById('mensajeExito');
+
+      if (!email || !email.includes('@')) {
+        form.email.classList.add('is-invalid');
+        mensaje.classList.add('d-none');
+      } else {
+        form.email.classList.remove('is-invalid');
+        mensaje.classList.remove('d-none');
+        form.reset();
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <div class="text-center mt-3">
+  <a href="login.html">Volver al inicio de sesión</a>
+</div>
+
+</body>
+</html>
