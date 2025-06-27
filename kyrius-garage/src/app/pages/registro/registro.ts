@@ -1,11 +1,43 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators, FormGroup, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
-  imports: [],
-  templateUrl: './registro.html',
-  styleUrl: './registro.scss'
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.scss']
 })
-export class Registro {
+export class RegistroComponent {
+  registroForm: FormGroup;
 
+  constructor(private fb: FormBuilder) {
+    this.registroForm = this.fb.group({
+      nombre: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.pattern(/^(?=.*[A-Z])(?=.*\d).+$/)  // al menos una mayúscula y un número
+      ]],
+      confirmarPassword: ['']
+    }, { validators: this.matchPasswords });
+  }
+
+  onSubmit() {
+    if (this.registroForm.valid) {
+      alert('Registro exitoso:\n' + JSON.stringify(this.registroForm.value, null, 2));
+    } else {
+      this.registroForm.markAllAsTouched();
+    }
+  }
+
+  matchPasswords(group: AbstractControl): ValidationErrors | null {
+    const pass = group.get('password')?.value;
+    const confirm = group.get('confirmarPassword')?.value;
+    return pass === confirm ? null : { mismatch: true };
+  }
+
+  get nombre() { return this.registroForm.get('nombre'); }
+  get email() { return this.registroForm.get('email'); }
+  get password() { return this.registroForm.get('password'); }
+  get confirmarPassword() { return this.registroForm.get('confirmarPassword'); }
 }

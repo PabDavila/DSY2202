@@ -1,1 +1,45 @@
-<p>registro works!</p>
+<div class="container py-5">
+  <h2 class="text-center mb-4">Registro de Usuario</h2>
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" class="w-50 mx-auto">
+
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre completo</label>
+      <input type="text" id="nombre" formControlName="nombre" class="form-control" [ngClass]="{'is-invalid': nombre?.invalid && nombre?.touched}">
+      <div *ngIf="nombre?.invalid && nombre?.touched" class="invalid-feedback">
+        El nombre es obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo electrónico</label>
+      <input type="email" id="email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': email?.invalid && email?.touched}">
+      <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+        <div *ngIf="email?.errors?.['required']">El correo es obligatorio.</div>
+        <div *ngIf="email?.errors?.['email']">Correo no válido.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': password?.invalid && password?.touched}">
+      <div *ngIf="password?.invalid && password?.touched" class="invalid-feedback">
+        <div *ngIf="password?.errors?.['required']">La contraseña es obligatoria.</div>
+        <div *ngIf="password?.errors?.['minlength']">Mínimo 6 caracteres.</div>
+        <div *ngIf="password?.errors?.['pattern']">Debe tener al menos una mayúscula y un número.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="confirmarPassword" class="form-label">Confirmar contraseña</label>
+      <input type="password" id="confirmarPassword" formControlName="confirmarPassword" class="form-control"
+        [ngClass]="{
+          'is-invalid': (confirmarPassword?.touched && registroForm.errors?.['mismatch'])
+        }">
+      <div *ngIf="confirmarPassword?.touched && registroForm.errors?.['mismatch']" class="invalid-feedback">
+        Las contraseñas no coinciden.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Registrarse</button>
+  </form>
+</div>

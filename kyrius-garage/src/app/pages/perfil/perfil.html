@@ -1,1 +1,29 @@
-<p>perfil works!</p>
+<div class="container py-5">
+  <h2 class="text-center mb-4">Perfil de Usuario</h2>
+  <form [formGroup]="perfilForm" (ngSubmit)="onSubmit()" class="w-50 mx-auto">
+
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre completo</label>
+      <input type="text" id="nombre" formControlName="nombre" class="form-control" [ngClass]="{'is-invalid': nombre?.invalid && nombre?.touched}">
+      <div *ngIf="nombre?.invalid && nombre?.touched" class="invalid-feedback">
+        Nombre obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo electrónico</label>
+      <input type="email" id="email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': email?.invalid && email?.touched}">
+      <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+        <div *ngIf="email?.errors?.['required']">El correo es obligatorio.</div>
+        <div *ngIf="email?.errors?.['email']">Correo no válido.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input type="text" id="telefono" formControlName="telefono" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-info w-100">Guardar cambios</button>
+  </form>
+</div>

@@ -1,1 +1,21 @@
-<p>home works!</p>
+<!-- Hero principal -->
+<header class="hero text-center bg-light py-5 mb-5">
+  <div class="container">
+    <h1 class="display-4">Descubre el mundo en miniatura</h1>
+    <p class="lead">Modelos a escala de alta precisión para coleccionistas y entusiastas.</p>
+    <a routerLink="/registro" class="btn btn-primary btn-lg mt-3">Únete ahora</a>
+  </div>
+</header>
+
+<!-- Productos destacados -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Productos Destacados</h2>
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let producto of productos">
+        <div class="card h-100">
+          <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
+          <div class="card-body">
+            <h5 class="card-title">{{ producto.nombre }}</h5>
+            <p class="card-text">{{ producto.descripcion }}</p>
+            <a href="#" class=
