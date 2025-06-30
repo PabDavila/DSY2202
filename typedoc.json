@@ -1,0 +1,10 @@
+{
+  "entryPoints": ["kyrius-garage/src/app/**/*.ts"],
+  "entryPointStrategy": "expand",
+  "out": "docs",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "hideGenerator": true,
+  "name": "Kyriu's Garage - Documentación"
+}

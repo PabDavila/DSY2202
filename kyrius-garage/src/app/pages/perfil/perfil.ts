@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',

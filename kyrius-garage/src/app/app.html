@@ -22,6 +22,9 @@
         <li class="nav-item"><a class="nav-link" routerLink="/login">Iniciar Sesión</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/registro">Registrarse</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/recuperar">Recuperar</a></li>
+        <li *ngIf="auth.isAdmin()" class="nav-item"><a class="nav-link" href="#">Administrar</a></li>
+        <li *ngIf="auth.isCliente()" class="nav-item"><a class="nav-link" href="#">Mis Compras</a></li>
+        <li *ngIf="auth.isLoggedIn()" class="nav-item"><a class="nav-link" href="#" (click)="logout()">Cerrar Sesión</a></li>
       </ul>
     </div>
   </div>
