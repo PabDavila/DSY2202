@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": "Machinedramon - Bandai",
+    "descripcion": "Modelo a escala de Machinedramon, detallado y articulado.",
+    "precio": 80000,
+    "imagen": "assets/img/modelo3.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Mecha Godzilla Kiryu - Aoshima",
+    "descripcion": "Clasico de la pelicula Godzilla Against Mechagodzilla, escala 1/100, perfecto para vitrinas.",
+    "precio": 90000,
+    "imagen": "assets/img/modelo1.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Metal Gear Rex - Kotobukiya",
+    "descripcion": "El clasico jefe de la serie Metal Gear Solid, escala 1/100, perfecto para vitrinas.",
+    "precio": 100000,
+    "imagen": "assets/img/modelo2.jpg"
+  }
+]

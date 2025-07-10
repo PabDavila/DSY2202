@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthService } from './services/auth.service';
 
+/**
+ * Componente raíz de la aplicación.
+ * Maneja la autenticación y navegación general.
+ */
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,9 +15,17 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.html',
 })
 export class App {
+  /**
+   * Constructor principal del componente.
+   * @param auth Servicio de autenticación inyectado.
+   * @param router Servicio de enrutamiento Angular.
+   */
   constructor(public auth: AuthService, private router: Router) {}
 
-  logout() {
+  /**
+   * Cierra la sesión del usuario y redirige al login.
+   */
+  logout(): void {
     this.auth.logout();
     this.router.navigate(['/login']);
   }
