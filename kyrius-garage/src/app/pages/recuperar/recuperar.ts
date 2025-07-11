@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-recuperar',
-  templateUrl: './recuperar.component.html',
-  styleUrls: ['./recuperar.component.scss']
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './recuperar.html',
+  styleUrls: ['./recuperar.scss']
 })
 export class RecuperarComponent {
   recuperarForm: FormGroup;

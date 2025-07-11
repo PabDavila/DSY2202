@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AbstractControl, ValidationErrors } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.scss']
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './registro.html',
+  styleUrls: ['./registro.scss']
 })
 export class RegistroComponent {
   registroForm: FormGroup;

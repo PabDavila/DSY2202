@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.scss']
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './perfil.html',
+  styleUrls: ['./perfil.scss']
 })
 export class PerfilComponent {
   perfilForm: FormGroup;
